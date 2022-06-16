@@ -10,6 +10,7 @@ services:
   db:
     image: mysql
     environment:
+      MYSQL_DATABASE: urlsh
       MYSQL_ROOT_PASSWORD: necronomicon
     ports:
       - "3306:3306"
