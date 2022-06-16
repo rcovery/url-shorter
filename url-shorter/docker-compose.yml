@@ -6,7 +6,7 @@ services:
       - "8000:8000"
     container_name: "url_app"
     volumes:
-      - .:/home/application
+      - .:/home/application/urlsh
   db:
     image: mysql
     environment:
