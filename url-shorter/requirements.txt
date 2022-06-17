@@ -1,2 +1,3 @@
 mysqlclient
+mysql.connector.django
 django
