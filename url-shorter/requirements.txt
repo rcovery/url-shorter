@@ -1,3 +1,4 @@
 mysqlclient
-mysql.connector.django
+mysql-connector-python
+coverage
 django
