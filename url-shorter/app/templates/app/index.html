@@ -1,7 +1,9 @@
 {% extends "app/_layouts/base.html" %}
 
-{% block title %}Index Page{% endblock %}
+{% block title %}Index{% endblock %}
 
 {% block content %}
 <h1>Seu ID é {{ id|filesizeformat }}</h1>
+<br />
+<a href="{% url 'login' %}">Log in</a>
 {% endblock %}
