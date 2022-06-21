@@ -4,10 +4,7 @@ from .forms import UserForm
 def index(request):
     return render(request, 'app/index.html', { 'id': 5 })
 
-def login(request):
-    return render(request, 'app/login.html')
-
-def create(request):
+""" def create(request):
     template = 'app/create.html'
     context = {}
 
@@ -18,4 +15,4 @@ def create(request):
     else:
         context['form'] = form
 
-    return render(request, template, context)
+    return render(request, template, context) """
