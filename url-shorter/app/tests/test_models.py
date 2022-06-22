@@ -2,7 +2,7 @@ from django.test import TestCase
 from src.models import *
 
 # Create your tests here.
-class UrlShorterTest(TestCase):
+class ModelsTest(TestCase):
     def setUp(self):
         self.newUser = Users.objects.create(
             email = 'rcoverybot@protonmail.com',

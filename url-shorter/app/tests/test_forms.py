@@ -2,7 +2,7 @@ from django.test import TestCase
 from app.forms import *
 
 # Create your tests here.
-class FormTest(TestCase):
+class FormsTest(TestCase):
     def test_fail_create_userform(self):
         data = { 'username': 'Ryanzinho', 'password': '121212121'}
         form = UserForm(data)
