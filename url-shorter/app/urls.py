@@ -5,5 +5,4 @@ urlpatterns = [
     path('test/', views.index, name="index")
 ]
 
-# Removi tudo para começar a fazer certo
 # Criar teste para url e view, após criar o teste, começar a criar as rotinas...
