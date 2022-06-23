@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from src.models import Users
+from src.models import *
 
 class UserForm(ModelForm):
     class Meta:
@@ -8,4 +8,11 @@ class UserForm(ModelForm):
             'username',
             'email',
             'password'
+        ]
+
+class UrlForm(ModelForm):
+    class Meta:
+        model = Urls
+        fields = [
+            'url',
         ]
