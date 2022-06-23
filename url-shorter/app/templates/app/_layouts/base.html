@@ -3,9 +3,7 @@
         <title>{% block title %}{% endblock %} - URL SHORTER</title>
     </head>
     <body>
-        {% block header %}
-            <h1>You're in main page!</h1>
-        {% endblock %}
+        {% include 'app/_layouts/header.html' %}
         {% block content %}
         {% endblock %}
     </body>
