@@ -10,8 +10,8 @@ class IndexTest(TestCase):
         self.assertTemplateUsed(response, 'app/index.html')
 
     def test_post_index_template(self):
-        response = self.client.post('/')
+        response = self.client.post('/', { 'url': 'https://teste.com' })
 
         self.assertEqual(response.status_code, 200)
-        self.assertNotEqual(response.context['short_url'], None)
+        self.assertNotEqual(response.context['name'], None)
         self.assertTemplateUsed(response, 'app/index.html')
