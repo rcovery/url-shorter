@@ -20,7 +20,7 @@ class Users(models.Model):
     objects = models.Manager()
 
 class Urls(models.Model):
-    url = models.CharField(
+    url = models.URLField(
         max_length = 200,
         null = False,
         blank = False
