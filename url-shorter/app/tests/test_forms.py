@@ -16,7 +16,7 @@ class FormsTest(TestCase):
         self.assertTrue(form.is_valid())
 
     def test_create_urlform(self):
-        data = { 'url': 'test' }
+        data = { 'url': 'https://www.test.com' }
         form = UrlForm(data)
 
         self.assertTrue(form.is_valid())
