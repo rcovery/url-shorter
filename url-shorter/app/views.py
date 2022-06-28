@@ -19,7 +19,7 @@ def index(request):
             )
 
             if already_exists:
-                template = 'app/404.html'
+                return render(request, 'app/404.html', context)
         else:
             context['name'] = '8a3i93paldIAjw0'
 
