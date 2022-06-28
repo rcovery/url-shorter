@@ -13,7 +13,7 @@ class UserModelTest(TestCase):
         self.newUrl = None
 
     def test_create_user(self):
-        self.assertEqual(self.newUser.id, 1)
+        self.assertTrue(self.newUser.id)
 
     def test_update_user_email(self):
         modUser = self.newUser

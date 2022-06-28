@@ -10,7 +10,7 @@ class Users(models.Model):
 class Urls(models.Model):
     url = models.CharField(max_length = 200, null = False, blank = False)
     name = models.CharField(max_length = 100, null = False, blank = False, primary_key = True)
-    user = models.ForeignKey(Users, on_delete = models.CASCADE)
+    user = models.ForeignKey(Users, on_delete = models.CASCADE, null = True, blank = True)
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
 
