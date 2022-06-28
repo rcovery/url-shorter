@@ -11,8 +11,13 @@ class UserForm(ModelForm):
         ]
 
 class UrlForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(UrlForm, self).__init__(*args, **kwargs)
+        self.fields['name'].required = False
+
     class Meta:
         model = Urls
         fields = [
             'url',
+            'name'
         ]
