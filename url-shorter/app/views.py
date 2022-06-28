@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib import messages
 from .forms import UrlForm
 from src.models import Urls
 
@@ -19,7 +20,8 @@ def index(request):
             )
 
             if already_exists:
-                return render(request, 'app/404.html', context)
+                messages.error(request, 'Este nome está indisponível!')
+                return render(request, template, context)
         else:
             context['name'] = '8a3i93paldIAjw0'
 
@@ -29,5 +31,7 @@ def index(request):
                 name = context['name'],
                 url = context['url']
             )
+
+            messages.info(request, 'Nova URL copiada!')
 
     return render(request, template, context)
