@@ -1,0 +1,41 @@
+:root {
+    --dark: #343636;
+    --dark-low: #434747;
+    --gray: #4D5454;
+    --gray-high: #6D787A;
+    --gray-low: #919EA3;
+    --off-white: #BFC6CA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--dark);
+}
+
+header {
+    color: var(--gray-low);
+    text-align: center;
+    font-family: monospace;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+input {
+    outline: none;
+    border: none;
+    border-radius: 7px;
+    background: var(--dark-low);
+    padding: 10px;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 9px;
+}
