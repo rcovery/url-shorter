@@ -1,6 +1,9 @@
+{% load static %}
+
 <html>
     <head>
         <title>{% block title %}{% endblock %} - URL SHORTER</title>
+        <link rel='stylesheet' href="{% static 'css/styles.css' %}" />
     </head>
     <body>
         {% include 'app/_layouts/header.html' %}
