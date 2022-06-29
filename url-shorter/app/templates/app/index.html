@@ -6,8 +6,10 @@
 <form method='POST'>
     {% csrf_token %}
 
-    {{ form.url }}
-    {{ form.name }}
+    <div class="flex">
+        {{ form.url }}
+        {{ form.name }}
+    </div>
 
     <input type='submit'/>
 </form>
