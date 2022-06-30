@@ -6,11 +6,15 @@
 <form method='POST'>
     {% csrf_token %}
 
-    <div class="flex">
-        {{ form.url }}
-        {{ form.name }}
-    </div>
+    <div class="flex card">
+        <div class="flex column" style="width: 100%">
+            <input class="field" type='text' name="url"/>
 
-    <input type='submit'/>
+            <div class="flex">
+                <input class="field" type='text' name="name"/>
+                <button type="submit"></button>
+            </div>
+        </div>
+    </div>
 </form>
 {% endblock %}

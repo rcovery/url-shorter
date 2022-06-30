@@ -5,6 +5,8 @@
     --gray-high: #6D787A;
     --gray-low: #919EA3;
     --off-white: #BFC6CA;
+
+    --transparent-gray: rgb(46, 46, 46, 20%);
 }
 
 * {
@@ -13,7 +15,7 @@
 }
 
 body {
-    background: var(--dark);
+    background: linear-gradient(227deg, var(--gray-high), var(--dark));
 }
 
 header {
@@ -24,18 +26,30 @@ header {
     font-weight: 600;
 }
 
-input {
+.field {
     outline: none;
     border: none;
     border-radius: 7px;
     background: var(--dark-low);
     padding: 10px;
+    width: 90%;
 }
 
 .flex {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     row-gap: 9px;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.card {
+    background: var(--transparent-gray);
+    width: 30%;
+    margin: auto;
+    padding: 30px;
+    border-radius: 7px;
 }
