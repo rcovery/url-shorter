@@ -6,11 +6,8 @@ from src.models import Urls
 def index(request):
     context = {}
     template = 'app/index.html'
-    
-    if request.method == 'GET':
-        context['form'] = UrlForm()
 
-    elif request.method == 'POST':
+    if request.method == 'POST':
         context = dict(request.POST)
 
         if 'name' in context:
