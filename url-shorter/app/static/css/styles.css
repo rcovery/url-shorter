@@ -31,6 +31,7 @@ header {
     border: none;
     border-radius: 7px;
     background: var(--dark-low);
+    color: var(--off-white);
     padding: 10px;
     width: 90%;
 }
@@ -40,6 +41,18 @@ header {
     justify-content: center;
     align-items: center;
     row-gap: 9px;
+    column-gap: 9px;
+}
+
+.relative {
+    position: relative;
+}
+
+.slash {
+    position: absolute;
+    left: 12px;
+    top: 4px;
+    color: var(--off-white);
 }
 
 .column {
@@ -52,4 +65,13 @@ header {
     margin: auto;
     padding: 30px;
     border-radius: 7px;
+}
+
+.button {
+    border-radius: 7px;
+    background: var(--dark-low);
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    fill: var(--off-white);
 }

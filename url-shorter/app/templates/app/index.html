@@ -8,11 +8,34 @@
 
     <div class="flex card">
         <div class="flex column" style="width: 100%">
-            <input class="field" type='text' name="url"/>
+            <input
+                class="field"
+                type='text'
+                name="url"
+                placeholder="https://google.com"
+            />
 
             <div class="flex">
-                <input class="field" type='text' name="name"/>
-                <button type="submit"></button>
+                <div class="relative">
+                    <input
+                        class="field"
+                        placeholder="myniceurl"
+                        type='text'
+                        name="name"
+                        style="
+                            padding-left: 30px;
+                            width: 100%;
+                        "
+                    />
+                    <h2 class="slash">
+                        /
+                    </h2>
+                </div>
+                <button class="button" type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <polygon points="7.293 4.707 14.586 12 7.293 19.293 8.707 20.707 17.414 12 8.707 3.293 7.293 4.707"/>
+                    </svg>
+                </button>
             </div>
         </div>
     </div>
