@@ -8,27 +8,29 @@ def index(request):
     template = 'app/index.html'
 
     if request.method == 'POST':
-        context = dict(request.POST)
+        data = dict(request.POST)
 
-        if 'name' in context:
+        if 'name' in data:
             # Check if exists
             already_exists = Urls.objects.filter(
-                name = context['name']
+                name = data['name']
             )
 
             if already_exists:
                 messages.error(request, 'Este nome está indisponível!')
                 return render(request, template, context)
         else:
-            context['name'] = '8a3i93paldIAjw0'
+            data['name'] = '8a3i93paldIAjw0'
 
-        form = UrlForm(context)
+        form = UrlForm(request.POST)
         if form.is_valid():
             new_url = Urls.objects.create(
-                name = context['name'],
-                url = context['url']
+                name = data['name'],
+                url = data['url']
             )
 
-            messages.info(request, 'Nova URL copiada!')
+            messages.info(request, 'URL criada!')
+        else:
+            messages.error(request, 'Preencha corretamente os dados do formulário!')
 
     return render(request, template, context)
