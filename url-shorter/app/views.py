@@ -17,14 +17,15 @@ def index(request):
 
         if 'name' in post and len(post['name']) > 3:
             # Check if exists
+            data['name'] = parse_name(post['name'])
+
             already_exists = Urls.objects.filter(
-                name = post['name']
+                name = data['name']
             )
 
             if already_exists:
                 messages.error(request, 'Este nome está indisponível!')
                 return render(request, template, context)
-            data['name'] = parse_name(post['name'])
         else:
             data['name'] = generate_url(8)
 
