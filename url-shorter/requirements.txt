@@ -2,3 +2,4 @@ mysqlclient
 mysql-connector-python
 coverage
 django
+requests
