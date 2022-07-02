@@ -6,7 +6,15 @@
 <form method='POST' style="width: 100%">
     {% csrf_token %}
     <div class="flex column">
+        <div class="flex column" style="width: 100%">
+
+        <label
+            for="url-field"
+        >
+            URL
+        </label>
         <input
+            id="url-field"
             class="field"
             type='text'
             name="url"
@@ -15,28 +23,38 @@
             placeholder="https://google.com"
         />
 
-        <div class="flex">
-            <div class="relative">
-                <input
-                    class="field"
-                    placeholder="myniceurl"
-                    type='text'
-                    name="name"
-                    maxlength="100"
-                    style="
-                        padding-left: 30px;
-                        width: 100%;
-                    "
-                />
-                <h2 class="slash">
-                    /
-                </h2>
+        </div>
+
+        <div class="flex column">
+            <label
+                for="name-field"
+            >
+                Nome (opcional)
+            </label>
+            <div>
+                <div class="relative flex">
+                    <input
+                        id="name-field"
+                        class="field"
+                        placeholder="myniceurl"
+                        type='text'
+                        name="name"
+                        maxlength="100"
+                        style="
+                            padding-left: 30px;
+                            width: 100%;
+                        "
+                    />
+                    <h2 class="slash">
+                        /
+                    </h2>
+                    <button class="button" type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                            <polygon points="7.293 4.707 14.586 12 7.293 19.293 8.707 20.707 17.414 12 8.707 3.293 7.293 4.707"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
-            <button class="button" type="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                    <polygon points="7.293 4.707 14.586 12 7.293 19.293 8.707 20.707 17.414 12 8.707 3.293 7.293 4.707"/>
-                </svg>
-            </button>
         </div>
     </div>
     {% if full_url %}
