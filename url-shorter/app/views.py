@@ -5,6 +5,7 @@ from src.models import Urls
 from .forms import UrlForm
 from string import hexdigits
 from random import choice
+from urllib.parse import quote
 
 def index(request):
     context = {}
@@ -23,7 +24,7 @@ def index(request):
             if already_exists:
                 messages.error(request, 'Este nome está indisponível!')
                 return render(request, template, context)
-            data['name'] = post['name']
+            data['name'] = quote(post['name'].strip().lower().replace(' ', '_'))
         else:
             data['name'] = generate_url(8)
 
