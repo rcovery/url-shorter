@@ -6,9 +6,11 @@
         <link rel='stylesheet' href="{% static 'css/styles.css' %}" />
     </head>
     <body>
+        <div class="container">
         {% include 'app/_layouts/header.html' %}
         {% block content %}
         {% endblock %}
+        </div>
 
         <script src="{% static 'js/script.js' %}" type="text/javascript"></script>
     </body>
