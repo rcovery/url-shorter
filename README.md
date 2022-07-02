@@ -2,7 +2,7 @@
 
 ## How to install
 
-Enter in project folder:
+Enter in the project folder:
 ```bash
 cd url-shorter
 ```
