@@ -7,6 +7,8 @@ from string import hexdigits
 from random import choice
 from urllib.parse import quote
 
+import requests
+
 def index(request):
     context = {}
     template = 'app/index.html'
@@ -30,7 +32,17 @@ def index(request):
             data['name'] = generate_url(8)
 
         form = UrlForm(post)
-        if form.is_valid():
+        if form.is_valid() and 'localhost' not in post['url'] and '127.0.0.1' not in post['url']:
+            try:
+                url_response = requests.get(post['url'], timeout=3)
+            except requests.exceptions.Timeout:
+                messages.error(request, 'Esta URL não está respondendo!')
+                return render(request, template, context)
+
+            if (url_response.status_code >= 400):
+                messages.error(request, 'Esta URL não está correta!')
+                return render(request, template, context)
+
             new_url = Urls.objects.create(
                 name = data['name'],
                 url = post['url']
