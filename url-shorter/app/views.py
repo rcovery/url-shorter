@@ -31,7 +31,7 @@ def index(request):
                 url = data['url']
             )
 
-            messages.info(request, 'URL criada!')
+            messages.info(request, 'Sua URL foi criada e copiada!')
 
             context['name'] = data['name']
             context['url'] = data['url']
