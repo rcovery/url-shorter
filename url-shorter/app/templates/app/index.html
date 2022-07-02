@@ -41,9 +41,9 @@
                 </button>
             </div>
         </div>
-        {% if name %}
+        {% if full_url %}
             <br />
-            <div class="generated_url" onclick="copy(this)" onload="copy(this)">https://localhost:8000/{{ name }}</div>
+            <div class="generated_url" onclick="copy(this)" onload="copy(this)">{{ full_url }}</div>
         {% endif %}
 
         {% if messages %}
