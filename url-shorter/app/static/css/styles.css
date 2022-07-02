@@ -5,6 +5,8 @@
     --gray-high: #6D787A;
     --gray-low: #919EA3;
     --off-white: #BFC6CA;
+    --info: rgb(58 148 166 / 75%);
+    --info-text: rgb(0 213 255 / 75%);
 
     --transparent-gray: rgb(46, 46, 46, 20%);
 }
@@ -74,4 +76,20 @@ header {
     border: none;
     cursor: pointer;
     fill: var(--off-white);
+}
+
+.info {
+    background: rgba(0,0,0,0.05);
+    color: var(--info-text);
+    border: solid var(--info) 3px;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: monospace;
+    font-size: 15px;
+}
+
+.generated_url {
+    font-family: monospace;
+    font-size: 15px;
+    color: var(--off-white);
 }
