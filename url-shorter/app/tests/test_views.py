@@ -17,10 +17,13 @@ class IndexTest(TestCase):
         self.assertTemplateUsed(response, 'app/index.html')
 
     def test_post_index_with_name(self):
-        response = self.client.post('/', { 'url': 'https://teste.com', 'name': 'rcovery' })
+        data = { 'url': 'https://teste.com', 'name': 'rcovery' }
+        response = self.client.post('/', data)
 
         self.assertEqual(response.status_code, 200)
         self.assertNotEqual(response.context['name'], None)
+        self.assertEqual(len(data['name']), 7)
+        self.assertEqual(response.context['name'], 'rcovery')
         self.assertTemplateUsed(response, 'app/index.html')
 
     def test_post_index_with_same_name(self):
@@ -29,6 +32,8 @@ class IndexTest(TestCase):
         response = self.client.post('/', { 'url': 'https://teste2.com', 'name': 'rcovery' })
 
         self.assertEqual(response.status_code, 200)
-        self.assertNotEqual(response.context['name'], None)
-        #self.assertTemplateUsed(response, 'app/404.html')
-        # test message
+
+    def test_get_track(self):
+        response = self.client.get('/rcovery')
+
+        self.assertEqual(response.status_code, 200)
