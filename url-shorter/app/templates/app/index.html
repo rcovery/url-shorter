@@ -3,15 +3,15 @@
 {% block title %}Principal{% endblock %}
 
 {% block content %}
-<form method='POST' style="width: 100%">
+<form method='POST' class="max_width">
     {% csrf_token %}
     <div class="flex column">
-        <div class="flex column" style="width: 100%">
+        <div class="flex column max_width">
 
         <label
             for="url-field"
         >
-            URL
+            URL para encurtar *
         </label>
         <input
             id="url-field"
@@ -35,20 +35,16 @@
                 <div class="relative flex">
                     <input
                         id="name-field"
-                        class="field"
+                        class="field max_width start_adornment"
                         placeholder="myniceurl"
                         type='text'
                         name="name"
                         maxlength="100"
-                        style="
-                            padding-left: 30px;
-                            width: 100%;
-                        "
                     />
                     <h2 class="slash">
                         /
                     </h2>
-                    <button class="button" type="submit">
+                    <button class="button icon_button" type="submit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                             <polygon points="7.293 4.707 14.586 12 7.293 19.293 8.707 20.707 17.414 12 8.707 3.293 7.293 4.707"/>
                         </svg>
