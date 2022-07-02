@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UrlForm
+from django.http import HttpResponseRedirect
 from src.models import Urls
+from .forms import UrlForm
 from string import hexdigits
 from random import choice
 
@@ -10,33 +11,51 @@ def index(request):
     template = 'app/index.html'
 
     if request.method == 'POST':
-        data = dict(request.POST)
+        data = {}
+        post = request.POST
 
-        if 'name' in data and len(data['name']) > 3:
+        if 'name' in post and len(post['name']) > 3:
             # Check if exists
             already_exists = Urls.objects.filter(
-                name = data['name']
+                name = post['name']
             )
 
             if already_exists:
                 messages.error(request, 'Este nome está indisponível!')
                 return render(request, template, context)
+            data['name'] = post['name']
         else:
             data['name'] = generate_url(8)
 
-        form = UrlForm(request.POST)
+        form = UrlForm(post)
         if form.is_valid():
             new_url = Urls.objects.create(
                 name = data['name'],
-                url = data['url']
+                url = post['url']
             )
 
             messages.info(request, 'Sua URL foi criada e copiada!')
 
             context['name'] = data['name']
-            context['url'] = data['url']
+            context['full_url'] = request.build_absolute_uri() + data['name']
         else:
             messages.error(request, 'Preencha corretamente os dados do formulário!')
+
+    return render(request, template, context)
+
+def track(request, url_name):
+    context = {}
+    template = 'app/404.html'
+
+    try:
+        exists = Urls.objects.get(
+            name = url_name
+        )
+
+        if exists:
+            return redirect(exists.url)
+    except:
+        pass
 
     return render(request, template, context)
 
