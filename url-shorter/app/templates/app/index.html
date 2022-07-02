@@ -3,57 +3,54 @@
 {% block title %}Principal{% endblock %}
 
 {% block content %}
-<form method='POST'>
+<form method='POST' style="width: 100%">
     {% csrf_token %}
+    <div class="flex column">
+        <input
+            class="field"
+            type='text'
+            name="url"
+            maxlength="200"
+            required
+            placeholder="https://google.com"
+        />
 
-    <div class="flex card column">
-        <div class="flex column" style="width: 100%">
-            <input
-                class="field"
-                type='text'
-                name="url"
-                maxlength="200"
-                required
-                placeholder="https://google.com"
-            />
-
-            <div class="flex">
-                <div class="relative">
-                    <input
-                        class="field"
-                        placeholder="myniceurl"
-                        type='text'
-                        name="name"
-                        maxlength="100"
-                        style="
-                            padding-left: 30px;
-                            width: 100%;
-                        "
-                    />
-                    <h2 class="slash">
-                        /
-                    </h2>
-                </div>
-                <button class="button" type="submit">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                        <polygon points="7.293 4.707 14.586 12 7.293 19.293 8.707 20.707 17.414 12 8.707 3.293 7.293 4.707"/>
-                    </svg>
-                </button>
+        <div class="flex">
+            <div class="relative">
+                <input
+                    class="field"
+                    placeholder="myniceurl"
+                    type='text'
+                    name="name"
+                    maxlength="100"
+                    style="
+                        padding-left: 30px;
+                        width: 100%;
+                    "
+                />
+                <h2 class="slash">
+                    /
+                </h2>
             </div>
+            <button class="button" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                    <polygon points="7.293 4.707 14.586 12 7.293 19.293 8.707 20.707 17.414 12 8.707 3.293 7.293 4.707"/>
+                </svg>
+            </button>
         </div>
-        {% if full_url %}
-            <br />
-            <div class="generated_url" onclick="copy(this)" onload="copy(this)">{{ full_url }}</div>
-        {% endif %}
-
-        {% if messages %}
-            <br />
-            {% for message in messages %}
-                <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
     </div>
+    {% if full_url %}
+        <br />
+        <div class="generated_url" onclick="copy(this)" onload="copy(this)">{{ full_url }}</div>
+    {% endif %}
+
+    {% if messages %}
+        <br />
+        {% for message in messages %}
+            <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
 </form>
 {% endblock %}
