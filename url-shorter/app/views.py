@@ -24,7 +24,7 @@ def index(request):
             if already_exists:
                 messages.error(request, 'Este nome está indisponível!')
                 return render(request, template, context)
-            data['name'] = quote(post['name'].strip().lower().replace(' ', '_'))
+            data['name'] = parse_name(post['name'])
         else:
             data['name'] = generate_url(8)
 
@@ -62,3 +62,6 @@ def track(request, url_name):
 
 def generate_url(length):
     return ''.join(choice(hexdigits) for i in range(length))
+
+def parse_name(data):
+    return quote(data.strip().lower().replace(' ', '_'))
