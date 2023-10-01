@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from os import getenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,9 +31,7 @@ ALLOWED_HOSTS = [
     '.ngrok.io'
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://6845-2804-21f8-4cb-5a00-f094-cec9-160e-7481.sa.ngrok.io'
-]
+CSRF_TRUSTED_ORIGINS = []
 
 # Application definition
 
@@ -87,7 +86,7 @@ DATABASES = {
         'NAME': 'urlsh',
         'USER': 'root',
         'PASSWORD': 'necronomicon',
-        'HOST': 'db',
+        'HOST': getenv('DATABASE_HOST') if getenv('DATABASE_HOST') else 'db',
         'PORT': '3306',
     }
 }
