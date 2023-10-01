@@ -1,18 +1,16 @@
 # URL SHORTER
 
+<img src="./readme/urlshorter.png">
+
 ## How to install
 
-Enter in the project folder:
-```bash
-cd url-shorter
-```
-
 Run docker compose:
+
 ```bash
 docker compose up -d
 ```
 
-----------------------------
+---
 
 After installing, just access http://localhost:8000
 
@@ -21,5 +19,5 @@ After installing, just access http://localhost:8000
 Access docker and enter the following command:
 
 ```bash
-sh test.sh
+python manage.py test
 ```

@@ -30,9 +30,7 @@ ALLOWED_HOSTS = [
     '.ngrok.io'
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://6845-2804-21f8-4cb-5a00-f094-cec9-160e-7481.sa.ngrok.io'
-]
+CSRF_TRUSTED_ORIGINS = []
 
 # Application definition
 

@@ -1,10 +1,12 @@
-version: '3.9'
+version: "3.9"
 services:
   web:
     build: .
-    ports: 
+    ports:
       - "8000:8000"
     container_name: "url_app"
+    depends_on:
+      - db
     volumes:
       - .:/home/application/urlsh
   db:

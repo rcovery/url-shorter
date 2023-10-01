@@ -45,12 +45,23 @@ label {
 
 .field {
     outline: none;
-    border: none;
+    border: solid 1px;
     border-radius: 7px;
+    border-color: var(--dark-low);
     background: var(--dark-low);
     color: var(--off-white);
+    transition: 0.5s;
     padding: 10px;
     width: 100%;
+}
+
+.field:hover {
+    border-color: var(--gray-low);
+}
+
+.field:focus {
+    border-color: var(--gray);
+    background: var(--gray);
 }
 
 .flex {
@@ -97,11 +108,12 @@ label {
     padding: 10px;
     border: none;
     cursor: pointer;
-    fill: var(--off-white);
+    color: var(--off-white);
+    transition: 0.5s;
 }
-
-.icon_button {
-    width: 50px;
+.button:hover {
+    background: var(--off-white);
+    color: var(--dark-low);
 }
 
 .info {

@@ -1,0 +1,65 @@
+{% extends "app/_layouts/base.html" %}
+
+{% block title %}Principal{% endblock %}
+
+{% block content %}
+<form method='POST' class="max_width">
+    {% csrf_token %}
+    <div class="flex column">
+        <div class="flex column max_width">
+            <label
+                for="url-field"
+            >
+                Link to shorten it *
+            </label>
+            <input
+                id="url-field"
+                class="field"
+                type='text'
+                name="url"
+                maxlength="200"
+                placeholder="https://google.com"
+                required
+            />
+        </div>
+        <div class="flex column max_width">
+            <label
+                for="name-field"
+            >
+                Name
+            </label>
+            <div class="relative max_width flex">
+                <input
+                    id="name-field"
+                    class="field start_adornment"
+                    placeholder="myniceurl"
+                    type='text'
+                    name="name"
+                    maxlength="100"
+                />
+                <h2 class="slash">
+                    /
+                </h2>
+            </div>
+        </div>
+        <div>
+            <button class="button" type="submit">
+                <p>Shorten</p>
+            </button>
+        </div>
+    </div>
+    {% if full_url %}
+        <br />
+        <div class="generated_url" onclick="copy(this)" onload="copy(this)">{{ full_url }}</div>
+    {% endif %}
+
+    {% if messages %}
+        <br />
+        {% for message in messages %}
+            <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+</form>
+{% endblock %}
