@@ -87,7 +87,7 @@ DATABASES = {
         'PASSWORD': 'necronomicon',
         'HOST': 'db',
         'PORT': '3306',
-    }
+    },
     'ci': {
         'ENGINE': 'mysql.connector.django',
         'NAME': 'urlsh',
