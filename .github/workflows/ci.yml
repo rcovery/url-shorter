@@ -21,15 +21,14 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      steps:
       - uses: mirromutth/mysql-action@v1.1
         with:
-          mysql user: 'root'
-          mysql database: 'urlsh'
-          character set server: 'utf8'
-          mysql password: 'necronomicon'
-          collation server: 'utf8_general_ci'
-          mysql root password: 'necronomicon'
+          mysql user: "root"
+          mysql database: "urlsh"
+          character set server: "utf8"
+          mysql password: "necronomicon"
+          collation server: "utf8_general_ci"
+          mysql root password: "necronomicon"
 
       - name: Run Migrations
         run: python manage.py migrate --database=ci
