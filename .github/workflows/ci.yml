@@ -20,9 +20,19 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Initializing container
-        run: docker-compose up -d --build
+
+      steps:
+      - uses: mirromutth/mysql-action@v1.1
+        with:
+          mysql user: 'root'
+          mysql database: 'urlsh'
+          character set server: 'utf8'
+          mysql password: 'necronomicon'
+          collation server: 'utf8_general_ci'
+          mysql root password: 'necronomicon'
+
+      - name: Run Migrations
+        run: python manage.py migrate --database=ci
 
       - name: Run Tests
-        run: |
-          docker exec url_app "python manage.py test && exit 0 || exit 1"
+        run: python manage.py test --database=ci

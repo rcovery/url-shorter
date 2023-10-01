@@ -88,6 +88,14 @@ DATABASES = {
         'HOST': 'db',
         'PORT': '3306',
     }
+    'ci': {
+        'ENGINE': 'mysql.connector.django',
+        'NAME': 'urlsh',
+        'USER': 'root',
+        'PASSWORD': 'necronomicon',
+        'HOST': '0.0.0.0',
+        'PORT': '3306',
+    }
 }
 
 
