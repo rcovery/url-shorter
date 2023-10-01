@@ -5,7 +5,7 @@ from src.models import *
 class UserModelTest(TestCase):
     def setUp(self):
         self.newUser = Users.objects.create(
-            email = 'rcoverybot@protonmail.com',
+            email = 'example@mail.com',
             username = 'rcovery',
             password = 'testpass'
         )
@@ -20,7 +20,7 @@ class UserModelTest(TestCase):
         modUser.email = 'test@yahoo.com'
         modUser.save()
 
-        self.assertNotEqual(modUser.email, 'rcoverybot@protonmail.com')
+        self.assertNotEqual(modUser.email, 'example@mail.com')
 
     def test_create_url(self):
         self.newUrl = Urls.objects.create(
